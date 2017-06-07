@@ -3,7 +3,7 @@
 
 
 	YLWrapper::YLWrapper() {
-		/*
+		
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
@@ -12,36 +12,23 @@
 		poseModel = op::PoseModel::COCO_18;
 		
 		
-		op::CvMatToOpInput icvMatToOpInput{netInputSize, num_scales, scale_gap};
-		op::CvMatToOpOutput icvMatToOpOutput{outputSize};
-		op::PoseExtractorCaffe iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
+		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
+		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
+		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
 												  model_folder, num_gpu_start};
-		op::PoseRenderer iposeRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		
-		cvMatToOpInput = icvMatToOpInput;
-		cvMatToOpOutput = icvMatToOpOutput;
-		poseExtractorCaffe = iposeExtractorCaffe;
-		poseRenderer = iposeRenderer;
-		
-		
-		
-		cvMatToOpInput{netInputSize, num_scales, scale_gap};
-		cvMatToOpOutput{outputSize};
-		poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
-														  model_folder, num_gpu_start};
-		poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
+		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
 		
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
-		*/
+		
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
 		cv::Mat inputImage = oriImg;
 		
 		//test
-		
+		/*
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -49,7 +36,9 @@
 		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
 		
 		poseExtractorCaffe.initializationOnThread();
-		poseRenderer.initializationOnThread();		
+		poseRenderer.initializationOnThread();
+		*/
+		
 		
 		
 		

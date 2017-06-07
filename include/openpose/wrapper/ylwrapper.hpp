@@ -21,22 +21,22 @@
         
 
     private:
-        cv::Size outputSize(1280, 720);
-		cv::Size netInputSize(656, 368);
-		cv::Size netOutputSize = netInputSize;
-		op::PoseModel poseModel = op::PoseModel::COCO_18;
+        cv::Size outputSize;
+		cv::Size netInputSize;
+		cv::Size netOutputSize;
+		op::PoseModel poseModel;
 		
 		int num_scales = 1;
 		float scale_gap = 0.3;
 		float alpha_pose = 0.6;
 		int num_gpu_start = 0;
 		std::string model_folder = "models/";
-		/*
+		
 		op::CvMatToOpInput cvMatToOpInput;
 		op::CvMatToOpOutput cvMatToOpOutput;
 		op::PoseExtractorCaffe poseExtractorCaffe;
 		op::PoseRenderer poseRenderer;
-		*/
+		
     };
 
 
