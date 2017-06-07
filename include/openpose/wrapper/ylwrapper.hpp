@@ -32,10 +32,10 @@
 		int num_gpu_start = 0;
 		std::string model_folder = "models/";
 		
-		op::CvMatToOpInput cvMatToOpInput;
-		op::CvMatToOpOutput cvMatToOpOutput;
-		op::PoseExtractorCaffe poseExtractorCaffe;
-		op::PoseRenderer poseRenderer;
+		//op::CvMatToOpInput cvMatToOpInput;
+		//op::CvMatToOpOutput cvMatToOpOutput;
+		//op::PoseExtractorCaffe poseExtractorCaffe;
+		//op::PoseRenderer poseRenderer;
 		
     };
 
