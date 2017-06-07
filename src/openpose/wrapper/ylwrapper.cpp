@@ -5,14 +5,6 @@
 	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize},
 	poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start},
 	poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose} {
-		/*
-		outputSize.width = 1280;
-		outputSize.height = 720;
-		netInputSize.width = 656;
-		netInputSize.height = 368;
-		netOutputSize = netInputSize;
-		poseModel = op::PoseModel::COCO_18;
-		*/
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
@@ -20,22 +12,6 @@
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
 		cv::Mat inputImage = oriImg;
-		
-		//test
-		/*
-		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
-		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
-		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
-												  model_folder, num_gpu_start};
-		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		
-		poseExtractorCaffe.initializationOnThread();
-		poseRenderer.initializationOnThread();
-		*/
-		
-		
-		
-		
 		
 		// Step 2 - Format input image to OpenPose input and output formats
 		const auto netInputArray = cvMatToOpInput.format(inputImage);
@@ -84,7 +60,7 @@
 	}
 
     void YLWrapper::freeGPU() {
-    	
+    	cudaDeviceReset();
     }
 	
 

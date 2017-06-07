@@ -23,6 +23,8 @@ int main()
 		std::cout << res_json << "\n";
 	}
 	
+	ylw.freeGPU();
+	
 	//const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 	
 	//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
