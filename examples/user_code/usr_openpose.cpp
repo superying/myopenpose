@@ -60,8 +60,22 @@ int openPoseTutorialPose1()
     // Step 3 - Estimate poseKeyPoints
     poseExtractorCaffe.forwardPass(netInputArray, inputImage.size());
     const auto poseKeyPoints = poseExtractorCaffe.getPoseKeyPoints();
+    
+    //test poseKeyPoints
+    std::cout << "poseKeyPoints \n";
+    std::cout << "number of people: " << poseKeyPoints.getSize(0) << "\n";
+    std::cout << "number of body parts: " << poseKeyPoints.getSize(1) << "\n";
+    
+    
     // Step 4 - Render poseKeyPoints
     poseRenderer.renderPose(outputArray, poseKeyPoints);
+    
+    //test outputArray
+    std::cout << "outputArray \n";
+    std::cout << "number of people: " << outputArray.getSize(0) << "\n";
+    std::cout << "number of body parts: " << outputArray.getSize(1) << "\n";
+    
+    
     // Step 5 - OpenPose output format to cv::Mat
     auto outputImage = opOutputToCvMat.formatToCvMat(outputArray);
 
@@ -72,7 +86,7 @@ int openPoseTutorialPose1()
     return 0;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     // Running openPoseTutorialPose1
     return openPoseTutorialPose1();
