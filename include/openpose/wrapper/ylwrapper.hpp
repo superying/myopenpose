@@ -22,14 +22,14 @@ namespace op
         
 
     private:
-        cv::Size outputSize;
-		cv::Size netInputSize;
+        cv::Size outputSize(1280, 720);
+		cv::Size netInputSize(656, 368);
 		cv::Size netOutputSize;
 		op::PoseModel poseModel = op::PoseModel::COCO_18;
-		outputSize.width = 1280;
-		outputSize.height = 720;
-		netInputSize.width = 656;
-		netInputSize.height = 368;
+		//outputSize.width = 1280;
+		//outputSize.height = 720;
+		//netInputSize.width = 656;
+		//netInputSize.height = 368;
 		netOutputSize = netInputSize;
 		
 		int num_scales = 1;
