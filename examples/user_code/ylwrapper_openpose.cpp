@@ -13,9 +13,12 @@ int main()
 	
 	std::cout << "init ready! \n";
 	
-	std::string res_json = ylw.getPoseEstimation(img_mat);
+	for(int i=0; i<10; i++) {
+		std::cout << "index: " << i << "\n";
+		std::string res_json = ylw.getPoseEstimation(img_mat);
 	
-	std::cout << "JSON Result: \n";
-	std::cout << res_json << "\n";
+		std::cout << "JSON Result: \n";
+		std::cout << res_json << "\n";
+	}
 	
 }
