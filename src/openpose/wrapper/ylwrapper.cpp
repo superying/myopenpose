@@ -53,6 +53,9 @@
 		poseExtractorCaffe.forwardPass(netInputArray, inputImage.size());
 		const auto poseKeyPoints = poseExtractorCaffe.getPoseKeyPoints();
 		
+		const auto numberPeople = poseKeyPoints.getSize(0);
+		const auto numberBodyParts = poseKeyPoints.getSize(1);
+		    
 		float scale = 1.0/scaleInputToOutput;
 		    
 		//generate json object
