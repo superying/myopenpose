@@ -9,4 +9,6 @@
 #include "wrapperStructOutput.hpp"
 #include "wrapperStructPose.hpp"
 
+#include "ylwrapper.hpp"
+
 #endif // OPENPOSE__WRAPPER__HEADERS_HPP
