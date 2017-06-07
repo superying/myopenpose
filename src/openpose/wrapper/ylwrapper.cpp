@@ -1,15 +1,15 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper() {
-		
+	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368} {
+		/*
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
 		netInputSize.height = 368;
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
-		
+		*/
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
