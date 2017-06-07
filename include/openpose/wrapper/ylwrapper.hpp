@@ -12,7 +12,7 @@
         /**
          * Constructor.
          */
-        YLWrapper();
+        YLWrapper(int gid);
 
         std::string getPoseEstimation(cv::Mat oriImg);
         

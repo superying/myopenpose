@@ -2,7 +2,7 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper() {
+	YLWrapper::YLWrapper(int gid) {
 		
 		outputSize.width = 1280;
 		outputSize.height = 720;
