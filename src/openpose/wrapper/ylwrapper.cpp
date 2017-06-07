@@ -10,16 +10,13 @@
 		netInputSize.height = 368;
 		netOutputSize = netInputSize;
 		
-		/*
-		poseModel = op::PoseModel::COCO_18;
-		
 		
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
 												  model_folder, num_gpu_start};
 		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		*/
+		
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
