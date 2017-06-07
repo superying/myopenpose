@@ -2,7 +2,7 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper() {
+	YLWrapper::YLWrapper(int gpu_id) {
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;

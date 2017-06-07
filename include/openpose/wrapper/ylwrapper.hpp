@@ -12,7 +12,7 @@
         /**
          * Constructor.
          */
-        YLWrapper();
+        YLWrapper(int gpu_id);
 
         std::string getPoseEstimation(cv::Mat oriImg);
         
