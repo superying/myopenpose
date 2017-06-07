@@ -22,15 +22,15 @@ namespace op
         
 
     private:
-        cv::Size outputSize(1280, 720);
-		cv::Size netInputSize(656, 368);
+        cv::Size outputSize;
+		cv::Size netInputSize;
 		cv::Size netOutputSize;
-		op::PoseModel poseModel = op::PoseModel::COCO_18;
+		op::PoseModel poseModel;
 		//outputSize.width = 1280;
 		//outputSize.height = 720;
 		//netInputSize.width = 656;
 		//netInputSize.height = 368;
-		netOutputSize = netInputSize;
+		//netOutputSize = netInputSize;
 		
 		int num_scales = 1;
 		float scale_gap = 0.3;
@@ -38,13 +38,11 @@ namespace op
 		int num_gpu_start = 0;
 		std::string model_folder = "models/";
 		
-		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
-		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
-		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
-												  model_folder, num_gpu_start};
-		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		op::OpOutputToCvMat opOutputToCvMat{outputSize};
-        
+		op::CvMatToOpInput cvMatToOpInput;
+		op::CvMatToOpOutput cvMatToOpOutput;
+		op::PoseExtractorCaffe poseExtractorCaffe;
+		op::PoseRenderer poseRenderer;
+		
     };
 }
 
@@ -58,6 +56,19 @@ namespace op
 namespace op
 {
 	YLWrapper::YLWrapper() {
+		outputSize.width = 1280;
+		outputSize.height = 720;
+		netInputSize.width = 656;
+		netInputSize.height = 368;
+		netOutputSize = netInputSize;
+		poseModel = op::PoseModel::COCO_18;
+		
+		cvMatToOpInput = op::CvMatToOpInput{netInputSize, num_scales, scale_gap};
+		cvMatToOpOutput = op::CvMatToOpOutput{outputSize};
+		poseExtractorCaffe = op::PoseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
+												  model_folder, num_gpu_start};
+		poseRenderer = op::PoseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
+		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
 	}
