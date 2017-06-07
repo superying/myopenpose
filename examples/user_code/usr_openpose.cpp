@@ -10,10 +10,10 @@
 
 // OpenPose dependencies
 #include <openpose/core/headers.hpp>
-#include <openpose/filestream/headers.hpp>
-#include <openpose/gui/headers.hpp>
+//#include <openpose/filestream/headers.hpp>
+//#include <openpose/gui/headers.hpp>
 #include <openpose/pose/headers.hpp>
-#include <openpose/utilities/headers.hpp>
+//#include <openpose/utilities/headers.hpp>
 
 int openPoseTutorialPose1()
 {
@@ -42,8 +42,8 @@ int openPoseTutorialPose1()
                                               model_folder, num_gpu_start};
     op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
     op::OpOutputToCvMat opOutputToCvMat{outputSize};
-    const cv::Size windowedSize = outputSize;
-    op::FrameDisplayer frameDisplayer{windowedSize, "OpenPose Tutorial - Example 1"};
+    //const cv::Size windowedSize = outputSize;
+    //op::FrameDisplayer frameDisplayer{windowedSize, "OpenPose Tutorial - Example 1"};
     // Step 4 - Initialize resources on desired thread (in this case single thread, i.e. we init resources here)
     poseExtractorCaffe.initializationOnThread();
     poseRenderer.initializationOnThread();
@@ -105,20 +105,20 @@ int openPoseTutorialPose1()
 	
     
     // Step 4 - Render poseKeyPoints
-    poseRenderer.renderPose(outputArray, poseKeyPoints);
+    //poseRenderer.renderPose(outputArray, poseKeyPoints);
     
     //test outputArray
-    std::cout << "outputArray \n";
-    std::cout << "number of people: " << outputArray.getSize(0) << "\n";
-    std::cout << "number of body parts: " << outputArray.getSize(1) << "\n";
+    //std::cout << "outputArray \n";
+    //std::cout << "number of people: " << outputArray.getSize(0) << "\n";
+    //std::cout << "number of body parts: " << outputArray.getSize(1) << "\n";
     
     
     // Step 5 - OpenPose output format to cv::Mat
-    auto outputImage = opOutputToCvMat.formatToCvMat(outputArray);
+    //auto outputImage = opOutputToCvMat.formatToCvMat(outputArray);
 
     // ------------------------- SHOWING RESULT AND CLOSING -------------------------
     // Step 1 - Show results
-    frameDisplayer.displayFrame(outputImage, 0); // Alternative: cv::imshow(outputImage) + cv::waitKey(0)
+    //frameDisplayer.displayFrame(outputImage, 0); // Alternative: cv::imshow(outputImage) + cv::waitKey(0)
     // Return successful message
     return 0;
 }
