@@ -1,4 +1,3 @@
-#include "openpose/core/headers.hpp"
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
@@ -9,6 +8,7 @@
 		netInputSize.width = 656;
 		netInputSize.height = 368;
 		netOutputSize = netInputSize;
+		poseModel = op::PoseModel::COCO_18;
 		
 		/*
 		cvMatToOpInput = std::make_shared<op::CvMatToOpInput>(netInputSize, num_scales, scale_gap);

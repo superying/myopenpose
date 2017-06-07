@@ -27,7 +27,7 @@
         cv::Size outputSize;
         cv::Size netInputSize;
         cv::Size netOutputSize;
-		op::PoseModel poseModel = op::PoseModel::COCO_18;
+		op::PoseModel poseModel;
 		
 		int num_scales = 1;
 		float scale_gap = 0.3;

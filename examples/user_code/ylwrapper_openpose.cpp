@@ -1,5 +1,4 @@
-#include <chrono>
-#include <openpose/core/headers.hpp>
+//#include <chrono>
 #include <openpose/wrapper/ylwrapper.hpp>
 
 
@@ -13,7 +12,7 @@ int main()
 	
 	std::cout << "init ready! \n";
 	
-	const auto timerBegin = std::chrono::high_resolution_clock::now();
+	//const auto timerBegin = std::chrono::high_resolution_clock::now();
 	
 	for(int i=0; i<100; i++) {
 		//std::cout << "index: " << i << "\n";
@@ -24,8 +23,8 @@ int main()
 		std::cout << res_json << "\n";
 	}
 	
-	const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
+	//const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 	
-	std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
+	//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
 	
 }
