@@ -2,7 +2,7 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper(int gpu_id) {
+	YLWrapper::YLWrapper() {
 		
 		outputSize.width = 1280;
 		outputSize.height = 720;
@@ -11,7 +11,7 @@
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		
-		
+		/*
 		op::CvMatToOpInput icvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput icvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -24,24 +24,24 @@
 		poseRenderer = iposeRenderer;
 		
 		
-		/*
+		
 		cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		cvMatToOpOutput{outputSize};
 		poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
 														  model_folder, num_gpu_start};
 		poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		*/
+		
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
-		
+		*/
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
 		cv::Mat inputImage = oriImg;
 		
 		//test
-		/*
+		
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -50,7 +50,7 @@
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();		
-		*/
+		
 		
 		
 		

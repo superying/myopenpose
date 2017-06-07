@@ -1,6 +1,6 @@
 
-#include "openpose/filestream/headers.hpp"
-#include "openpose/wrapper/ylwrapper.hpp"
+#include <openpose/filestream/headers.hpp>
+#include <openpose/wrapper/ylwrapper.hpp>
 
 
 
@@ -9,7 +9,7 @@ int main()
 	std::string image_path = "examples/media/COCO_val2014_000000000192.jpg";
 	cv::Mat img_mat = op::loadImage(image_path, CV_LOAD_IMAGE_COLOR);
 	
-	YLWrapper ylw(0);
+	YLWrapper ylw;
 	
 	std::cout << "init ready! \n";
 	
