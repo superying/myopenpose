@@ -21,10 +21,10 @@
         
 
     private:
-        cv::Size outputSize;
-		cv::Size netInputSize;
-		cv::Size netOutputSize;
-		op::PoseModel poseModel;
+        cv::Size<int> outputSize(1280, 720);
+		cv::Size<int> netInputSize(656, 368);
+		cv::Size<int> netOutputSize = netInputSize;
+		op::PoseModel poseModel = op::PoseModel::COCO_18;
 		
 		int num_scales = 1;
 		float scale_gap = 0.3;

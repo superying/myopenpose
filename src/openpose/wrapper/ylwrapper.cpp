@@ -3,7 +3,7 @@
 
 
 	YLWrapper::YLWrapper() {
-		
+		/*
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
@@ -11,7 +11,7 @@
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		
-		/*
+		
 		op::CvMatToOpInput icvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput icvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
