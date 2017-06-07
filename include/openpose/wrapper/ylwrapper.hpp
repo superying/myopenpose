@@ -21,9 +21,6 @@
         
 
     private:
-        //const cv::Size outputSize(1280, 720);
-		//const cv::Size netInputSize(656, 368);
-		//cv::Size netOutputSize = netInputSize;
         cv::Size outputSize;
         cv::Size netInputSize;
         cv::Size netOutputSize;
@@ -35,14 +32,6 @@
 		int num_gpu_start = 0;
 		std::string model_folder = "models/";
 		
-		
-		/*
-		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
-		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
-		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
-			  model_folder, num_gpu_start};
-		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		*/
     };
 
 
