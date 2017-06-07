@@ -66,6 +66,40 @@ int openPoseTutorialPose1()
     std::cout << "number of people: " << poseKeyPoints.getSize(0) << "\n";
     std::cout << "number of body parts: " << poseKeyPoints.getSize(1) << "\n";
     
+    const auto numberPeople = poseKeyPoints.getSize(0);
+    const auto numberBodyParts = poseKeyPoints.getSize(1);
+    
+    //generate json object
+    std::string res_json = "";
+
+	res_json += "{\n";
+	res_json +=  "\"version\":0.1,\n";
+	res_json +=  "\"bodies\":[\n";
+	for (int ip=0;ip<numberPeople;ip++) {
+		res_json +=  "{\n";
+		res_json +=  "\"joints\":";
+		res_json +=  "[";
+		for (int ij=0;ij<numberBodyParts;ij++) {
+			res_json += std::to_string(poseKeyPoints[ip*numberBodyParts*3 + ij*3+0]);
+			res_json += ",";
+			res_json += std::to_string(poseKeyPoints[ip*numberBodyParts*3 + ij*3+1]);
+			res_json += ",";
+			res_json += std::to_string(poseKeyPoints[ip*numberBodyParts*3 + ij*3+2]);
+			if (ij<numberBodyParts-1) res_json += ",";
+		}
+		res_json += "]\n";
+		res_json += "}";
+		if (ip<numberPeople-1) {
+			res_json += ",\n";
+		}
+	}
+	res_json += "]\n";
+	res_json += "}\n";
+    
+    
+	std::cout << "JSON Result: \n";
+	std::cout << res_json << "\n";
+	
     
     // Step 4 - Render poseKeyPoints
     poseRenderer.renderPose(outputArray, poseKeyPoints);
