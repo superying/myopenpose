@@ -15,7 +15,7 @@ int main()
 	
 	const auto timerBegin = std::chrono::high_resolution_clock::now();
 	
-	for(int i=0; i<100; i++) {
+	for(int i=0; i<20; i++) {
 		std::string res_json = ylw.getPoseEstimation(img_mat);
 	
 		std::cout << "index: " << i << "\n";
@@ -29,12 +29,13 @@ int main()
 	
 	//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
 	
+	std::string image_path2 = "examples/media/COCO_val2014_000000000192.jpg";
 	
-	cv::Mat img_mat2 = op::loadImage(image_path, CV_LOAD_IMAGE_COLOR);
+	cv::Mat img_mat2 = op::loadImage(image_path2, CV_LOAD_IMAGE_COLOR);
 		
 	YLWrapper ylw2;
 	
-	for(int j=0; j<100; j++) {
+	for(int j=0; j<20; j++) {
 		std::string res_json2 = ylw2.getPoseEstimation(img_mat2);
 	
 		std::cout << "index: " << j << "\n";
