@@ -1,6 +1,6 @@
 //#include <chrono>
-#include <openpose/core/headers.hpp>
-#include "openpose/wrapper/ylwrapper.hpp"
+#include <openpose/filestream/headers.hpp>
+#include <openpose/wrapper/ylwrapper.hpp>
 
 
 
