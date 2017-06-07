@@ -10,7 +10,7 @@
 
 // OpenPose dependencies
 #include <openpose/core/headers.hpp>
-//#include <openpose/filestream/headers.hpp>
+#include <openpose/filestream/headers.hpp>
 //#include <openpose/gui/headers.hpp>
 #include <openpose/pose/headers.hpp>
 //#include <openpose/utilities/headers.hpp>
