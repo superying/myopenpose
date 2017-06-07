@@ -3,7 +3,7 @@
 
 
 	YLWrapper::YLWrapper(int gpu_id) {
-		/*
+		
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
@@ -11,7 +11,7 @@
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		
-		
+		/*
 		op::CvMatToOpInput icvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput icvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -23,6 +23,11 @@
 		poseExtractorCaffe = iposeExtractorCaffe;
 		poseRenderer = iposeRenderer;
 		*/
+		cvMatToOpInput{netInputSize, num_scales, scale_gap};
+		cvMatToOpOutput{outputSize};
+		poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
+														  model_folder, num_gpu_start};
+		poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
