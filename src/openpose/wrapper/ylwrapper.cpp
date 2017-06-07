@@ -2,8 +2,8 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper(int gid) {
-		
+	YLWrapper::YLWrapper() {
+		/*
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
@@ -17,7 +17,7 @@
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
 												  model_folder, num_gpu_start};
 		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		
+		*/
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
