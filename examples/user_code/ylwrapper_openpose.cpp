@@ -1,4 +1,4 @@
-#include <openpose/core/headers.hpp>
+
 #include <openpose/wrapper/ylwrapper.hpp>
 
 
@@ -6,7 +6,7 @@
 int main()
 {
 	std::string image_path = "examples/media/COCO_val2014_000000000192.jpg";
-	cv::Mat img_mat = op::loadImage(image_path, CV_LOAD_IMAGE_COLOR);
+	cv::Mat img_mat = cv::imread(image_path, CV_LOAD_IMAGE_COLOR);
 	
 	YLWrapper ylw;
 	
