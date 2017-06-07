@@ -3,6 +3,7 @@
 
 
 	YLWrapper::YLWrapper(int gpu_id) {
+		/*
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
@@ -10,7 +11,7 @@
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		
-		/*
+		
 		op::CvMatToOpInput icvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput icvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -21,16 +22,18 @@
 		cvMatToOpOutput = icvMatToOpOutput;
 		poseExtractorCaffe = iposeExtractorCaffe;
 		poseRenderer = iposeRenderer;
+		*/
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
-		*/
+		
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
 		cv::Mat inputImage = oriImg;
 		
 		//test
+		/*
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -39,7 +42,7 @@
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();		
-		
+		*/
 		
 		
 		
