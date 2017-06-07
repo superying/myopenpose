@@ -21,9 +21,9 @@
         
 
     private:
-        cv::Size<int> outputSize(1280, 720);
-		cv::Size<int> netInputSize(656, 368);
-		cv::Size<int> netOutputSize = netInputSize;
+        cv::Size outputSize = cv::Size(1280, 720);
+		cv::Size netInputSize = cv::Size(656, 368);
+		cv::Size netOutputSize = netInputSize;
 		op::PoseModel poseModel = op::PoseModel::COCO_18;
 		
 		int num_scales = 1;
