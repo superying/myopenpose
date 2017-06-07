@@ -35,6 +35,11 @@
 		int num_gpu_start = 0;
 		std::string model_folder = "models/";
 		
+		auto cvMatToOpInput;
+		auto cvMatToOpOutput;
+		auto poseExtractorCaffe;
+		auto poseRenderer;
+		
 		/*
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};

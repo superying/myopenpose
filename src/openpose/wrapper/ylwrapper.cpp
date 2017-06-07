@@ -10,13 +10,19 @@
 		netInputSize.height = 368;
 		netOutputSize = netInputSize;
 		
+		cvMatToOpInput = std::make_shared<op::CvMatToOpInput>(netInputSize, num_scales, scale_gap);
+		cvMatToOpOutput = std::make_shared<op::CvMatToOpOutput>(outputSize);
+		poseExtractorCaffe = std::make_shared<op::PoseExtractorCaffe>(netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
+				  model_folder, num_gpu_start);
+		poseRenderer = std::make_shared<op::PoseRenderer>(netOutputSize, outputSize, poseModel, nullptr, alpha_pose);
 		
+		/*
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
 												  model_folder, num_gpu_start};
 		op::PoseRenderer poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
-		
+		*/
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
