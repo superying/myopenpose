@@ -15,7 +15,7 @@ int main()
 	
 	const auto timerBegin = std::chrono::high_resolution_clock::now();
 	
-	for(int i=0; i<100; i++) {
+	for(int i=0; i<10; i++) {
 		//std::cout << "index: " << i << "\n";
 		std::string res_json = ylw.getPoseEstimation(img_mat);
 	
