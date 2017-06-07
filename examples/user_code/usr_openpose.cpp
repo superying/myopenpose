@@ -62,6 +62,7 @@ int openPoseTutorialPose1()
     const auto poseKeyPoints = poseExtractorCaffe.getPoseKeyPoints();
     
     //test poseKeyPoints
+    std::cout << "scaleInputToOutput: " << scaleInputToOutput << "\n";
     std::cout << "poseKeyPoints \n";
     std::cout << "number of people: " << poseKeyPoints.getSize(0) << "\n";
     std::cout << "number of body parts: " << poseKeyPoints.getSize(1) << "\n";
