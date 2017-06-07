@@ -26,11 +26,6 @@ namespace op
 		cv::Size netInputSize;
 		cv::Size netOutputSize;
 		op::PoseModel poseModel;
-		//outputSize.width = 1280;
-		//outputSize.height = 720;
-		//netInputSize.width = 656;
-		//netInputSize.height = 368;
-		//netOutputSize = netInputSize;
 		
 		int num_scales = 1;
 		float scale_gap = 0.3;
@@ -63,11 +58,11 @@ namespace op
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		
-		cvMatToOpInput = op::CvMatToOpInput{netInputSize, num_scales, scale_gap};
-		cvMatToOpOutput = op::CvMatToOpOutput{outputSize};
-		poseExtractorCaffe = op::PoseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
-												  model_folder, num_gpu_start};
-		poseRenderer = op::PoseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose};
+		cvMatToOpInput = new op::CvMatToOpInput(netInputSize, num_scales, scale_gap);
+		cvMatToOpOutput = new op::CvMatToOpOutput(outputSize);
+		poseExtractorCaffe = new op::PoseExtractorCaffe(netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
+												  model_folder, num_gpu_start);
+		poseRenderer = new op::PoseRenderer(netOutputSize, outputSize, poseModel, nullptr, alpha_pose);
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
