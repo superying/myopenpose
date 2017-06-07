@@ -3,12 +3,14 @@
 
 
 	YLWrapper::YLWrapper() {
-		/*
+		
 		outputSize.width = 1280;
 		outputSize.height = 720;
 		netInputSize.width = 656;
 		netInputSize.height = 368;
 		netOutputSize = netInputSize;
+		
+		/*
 		poseModel = op::PoseModel::COCO_18;
 		
 		

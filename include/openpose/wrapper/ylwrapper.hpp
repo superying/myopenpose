@@ -21,9 +21,12 @@
         
 
     private:
-        const cv::Size outputSize(1280, 720);
-		const cv::Size netInputSize(656, 368);
-		cv::Size netOutputSize = netInputSize;
+        //const cv::Size outputSize(1280, 720);
+		//const cv::Size netInputSize(656, 368);
+		//cv::Size netOutputSize = netInputSize;
+        cv::Size outputSize;
+        cv::Size netInputSize;
+        cv::Size netOutputSize;
 		op::PoseModel poseModel = op::PoseModel::COCO_18;
 		
 		int num_scales = 1;
