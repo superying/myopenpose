@@ -1,7 +1,10 @@
 #include "openpose/wrapper/ylwrapper.hpp"
 
 
-	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368} {
+	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368},
+	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize},
+	poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start},
+	poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose} {
 		/*
 		outputSize.width = 1280;
 		outputSize.height = 720;
@@ -10,13 +13,16 @@
 		netOutputSize = netInputSize;
 		poseModel = op::PoseModel::COCO_18;
 		*/
+		
+		poseExtractorCaffe.initializationOnThread();
+		poseRenderer.initializationOnThread();
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
 		cv::Mat inputImage = oriImg;
 		
 		//test
-		
+		/*
 		op::CvMatToOpInput cvMatToOpInput{netInputSize, num_scales, scale_gap};
 		op::CvMatToOpOutput cvMatToOpOutput{outputSize};
 		op::PoseExtractorCaffe poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel,
@@ -25,7 +31,7 @@
 		
 		poseExtractorCaffe.initializationOnThread();
 		poseRenderer.initializationOnThread();
-		
+		*/
 		
 		
 		
