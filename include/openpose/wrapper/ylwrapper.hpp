@@ -21,8 +21,8 @@
         
 
     private:
-        cv::Size outputSize = cv::Size(1280, 720);
-		cv::Size netInputSize = cv::Size(656, 368);
+        cv::Size outputSize(1280, 720);
+		cv::Size netInputSize(656, 368);
 		cv::Size netOutputSize = netInputSize;
 		op::PoseModel poseModel = op::PoseModel::COCO_18;
 		
