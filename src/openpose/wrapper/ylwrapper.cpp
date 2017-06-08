@@ -60,7 +60,10 @@
 	}
 
     void YLWrapper::freeGPU() {
-    	cudaDeviceReset();
+    	//cudaDeviceReset();
+    	delete poseRenderer;
+    	delete poseExtractorCaffe;
+    	 
     }
 	
 
