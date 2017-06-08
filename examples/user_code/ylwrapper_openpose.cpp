@@ -29,6 +29,8 @@ int main()
 	
 	//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
 	
+	/*
+	
 	std::string image_path2 = "examples/media/COCO_val2014_000000000192.jpg";
 	
 	cv::Mat img_mat2 = op::loadImage(image_path2, CV_LOAD_IMAGE_COLOR);
@@ -42,7 +44,7 @@ int main()
 		std::cout << "JSON Result: \n";
 		std::cout << res_json2 << "\n";
 	}
-	
+	*/
 	
 	const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 		
