@@ -3,11 +3,12 @@
 
 	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368},
 	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize},
-	poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start},
-	poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose} {
+	&poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start}
+	//,poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose} 
+	{
 		
 		poseExtractorCaffe->initializationOnThread();
-		poseRenderer->initializationOnThread();
+		//poseRenderer->initializationOnThread();
 	}
 
 	std::string YLWrapper::getPoseEstimation(cv::Mat oriImg) {
@@ -61,7 +62,7 @@
 
     void YLWrapper::freeGPU() {
     	//cudaDeviceReset();
-    	delete poseRenderer;
+    	//delete poseRenderer;
     	delete poseExtractorCaffe;
     	 
     }

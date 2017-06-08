@@ -35,7 +35,7 @@
 		op::CvMatToOpInput cvMatToOpInput;
 		op::CvMatToOpOutput cvMatToOpOutput;
 		op::PoseExtractorCaffe* poseExtractorCaffe;
-		op::PoseRenderer* poseRenderer;
+		//op::PoseRenderer* poseRenderer;
 		
     };
 
