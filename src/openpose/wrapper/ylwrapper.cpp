@@ -2,8 +2,7 @@
 
 
 	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368},
-	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize},
-	iposeExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start}
+	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize}
 	{
 		poseExtractorCaffe = new op::PoseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start};
 		
