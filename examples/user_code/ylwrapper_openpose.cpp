@@ -23,7 +23,7 @@ int main()
 		std::cout << res_json << "\n";
 	}
 	
-	ylw.freeGPU();
+	//ylw.freeGPU();
 	
 	//const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 	
