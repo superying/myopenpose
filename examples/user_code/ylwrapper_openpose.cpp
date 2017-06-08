@@ -6,7 +6,7 @@
 
 int main()
 {
-	//const auto timerBegin = std::chrono::high_resolution_clock::now();
+	const auto timerBegin = std::chrono::high_resolution_clock::now();
 	
 	for(int m=0; m<1; m++) {
 	
@@ -17,9 +17,9 @@ int main()
 		
 		//std::cout << "init ready! \n";
 		
-		const auto timerBegin = std::chrono::high_resolution_clock::now();
+		//const auto timerBegin = std::chrono::high_resolution_clock::now();
 		
-		for(int i=0; i<200; i++) {
+		for(int i=0; i<20; i++) {
 			std::string res_json = ylw.getPoseEstimation(img_mat);
 		
 			std::cout << "index: " << i << "\n";
@@ -27,14 +27,14 @@ int main()
 			std::cout << res_json << "\n";
 		}
 		
-		//ylw.freeGPU();
+		ylw.freeGPU();
 		
-		const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
+		//const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 		
-		std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
+		//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
 		
 		
-		/*
+		
 		std::string image_path2 = "examples/media/COCO_val2014_000000000192.jpg";
 		
 		cv::Mat img_mat2 = op::loadImage(image_path2, CV_LOAD_IMAGE_COLOR);
@@ -50,13 +50,13 @@ int main()
 		}
 		
 		ylw2.freeGPU();
-		*/
+		
 	}
 	
 	
-	//const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
+	const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
 		
-	//std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
+	std::cout << "Total time: " << std::to_string(totalTimeSec) << " seconds.";
 	
 	
 }
