@@ -8,7 +8,7 @@ int main()
 {
 	const auto timerBegin = std::chrono::high_resolution_clock::now();
 	
-	//for(int m=0; m<10; m++) {
+	for(int m=0; m<3; m++) {
 	
 		std::string image_path = "examples/media/COCO_val2014_000000000192.jpg";
 		cv::Mat img_mat = op::loadImage(image_path, CV_LOAD_IMAGE_COLOR);
@@ -51,7 +51,7 @@ int main()
 		
 		ylw2.freeGPU();
 	
-	//}
+	}
 	
 	
 	const auto totalTimeSec = (double)std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now()-timerBegin).count() * 1e-9;
