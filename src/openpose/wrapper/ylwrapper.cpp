@@ -3,11 +3,12 @@
 
 	YLWrapper::YLWrapper(): outputSize{1280, 720}, netInputSize{656, 368}, netOutputSize{656, 368},
 	cvMatToOpInput{netInputSize, num_scales, scale_gap}, cvMatToOpOutput{outputSize},
-	&poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start}
+	poseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start}
 	//,poseRenderer{netOutputSize, outputSize, poseModel, nullptr, alpha_pose} 
 	{
+		//&poseExtractorCaffe = op::PoseExtractorCaffe{netInputSize, netOutputSize, outputSize, num_scales, scale_gap, poseModel, model_folder, num_gpu_start};
 		
-		poseExtractorCaffe->initializationOnThread();
+		poseExtractorCaffe.initializationOnThread();
 		//poseRenderer->initializationOnThread();
 	}
 
@@ -21,8 +22,8 @@
 		std::tie(scaleInputToOutput, outputArray) = cvMatToOpOutput.format(inputImage);
 		
 		// Step 3 - Estimate poseKeyPoints
-		poseExtractorCaffe->forwardPass(netInputArray, inputImage.size());
-		const auto poseKeyPoints = poseExtractorCaffe->getPoseKeyPoints();
+		poseExtractorCaffe.forwardPass(netInputArray, inputImage.size());
+		const auto poseKeyPoints = poseExtractorCaffe.getPoseKeyPoints();
 		
 		const auto numberPeople = poseKeyPoints.getSize(0);
 		const auto numberBodyParts = poseKeyPoints.getSize(1);
@@ -61,9 +62,9 @@
 	}
 
     void YLWrapper::freeGPU() {
-    	//cudaDeviceReset();
+    	cudaDeviceReset();
     	//delete poseRenderer;
-    	delete poseExtractorCaffe;
+    	//delete poseExtractorCaffe;
     	 
     }
 	
